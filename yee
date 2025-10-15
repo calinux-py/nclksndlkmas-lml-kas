@@ -1,0 +1,4 @@
+const { collection, getDocs } = await import('https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js');
+const users = await getDocs(collection(window.db, 'usersPublic'));
+const userData = users.docs.map(doc => ({id: doc.id, ...doc.data()}));
+console.table(userData);
