@@ -1,0 +1,9 @@
+console.log('checking PAGE_XP config:', window.PAGE_XP);
+
+if(window.PAGE_XP) {
+    for(const [path, config] of Object.entries(window.PAGE_XP)) {
+        console.log(`Awarding XP for: ${path}`);
+        await window.awardXp(config.amount, "page_visit", config.pageId);
+        await new Promise(r => setTimeout(r, 300));
+    }
+}
